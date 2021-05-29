@@ -1,0 +1,7 @@
+Git commnads:
+
+- When you want to push your work to Git Repository
+1. git add -A
+2. git commit -m "commit"
+3. git push
+
