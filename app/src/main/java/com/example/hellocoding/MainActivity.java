@@ -16,13 +16,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
     RecyclerViewAdapter recyclerViewAdapter;
+
+    public void abc() {
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         recyclerViewAdapter = new RecyclerViewAdapter();
         EditText nameEditText = findViewById(R.id.editTextTextPersonName);
         EditText gradeEditText = findViewById(R.id.editTextTextPersonGrade);
@@ -88,32 +90,36 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        Person person1 = new Person();
+        person1.grade = "7th";
+        person1.name = "Simon K";
+        person1.hairColor = "Black";
+        person1.food = "Pasta";
+
+        Person person2 = new Person();
+        person2.grade = "7th";
+        person2.name = "Daniel K";
+        person2.hairColor = "Red";
+        person2.food = "Pizza";
+
+        Person person3 = new Person();
+        person3.grade ="7th";
+        person3.name = "Ian B";
+        person3.hairColor = "Brown";
+        person3.food = "Burgers";
+
+        Person person4 = new Person();
+        person4.grade = "7th";
+        person4.name = "Kristian H";
+        person4.hairColor = "Blonde";
+        person4.food = "Eggrolls";
+
+
         List<Person> list = new ArrayList<>();
-        list.add(new Person("Simon K", "7th"));
-        list.add(new Person("Daniel K", "7th"));
-        list.add(new Person("Ian B", "7th"));
-        list.add(new Person("Kristian H", "7th"));
-        list.add(new Person("George C", "7th"));
-        list.add(new Person("Simon K", "7th"));
-        list.add(new Person("Daniel K", "7th"));
-        list.add(new Person("Ian B", "7th"));
-        list.add(new Person("Kristian H", "7th"));
-        list.add(new Person("George C", "7th"));
-        list.add(new Person("Simon K", "7th"));
-        list.add(new Person("Daniel K", "7th"));
-        list.add(new Person("Ian B", "7th"));
-        list.add(new Person("Kristian H", "7th"));
-        list.add(new Person("George C", "7th"));
-        list.add(new Person("Simon K", "7th"));
-        list.add(new Person("Daniel K", "7th"));
-        list.add(new Person("Ian B", "7th"));
-        list.add(new Person("Kristian H", "7th"));
-        list.add(new Person("George C", "7th"));
-        list.add(new Person("Simon K", "7th"));
-        list.add(new Person("Daniel K", "7th"));
-        list.add(new Person("Ian B", "7th"));
-        list.add(new Person("Kristian H", "7th"));
-        list.add(new Person("George C", "7th"));
+        list.add(person1);
+        list.add(person2);
+        list.add(person3);
+        list.add(person4);
 
         recyclerViewAdapter.updateData(list);
     }

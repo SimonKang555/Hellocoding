@@ -1,5 +1,6 @@
 package com.example.hellocoding;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,8 +29,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull RecyclerViewHolder holder, int position) {
+        Context context = holder.itemView.getContext();
         holder.textViewName.setText( data.get(position).name);
         holder.textViewGrade.setText(data.get(position).grade);
+        holder.textViewHairColor.setText(data.get(position).hairColor);
+        holder.textViewFood.setText(data.get(position).food);
+        if (data.get(position).hairColor == "Black") {
+            holder.textViewHairColor.setTextColor(context.getColor(R.color.black));
+        } if (data.get(position).hairColor == "Red") {
+            holder.textViewHairColor.setTextColor(context.getColor(R.color.purple_200));
+        }
     }
 
     @Override
@@ -45,20 +55,22 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
 class Person {
     public String name;
     public String grade;
-
-    public Person(String name, String grade) {
-        this.name = name;
-        this.grade = grade;
-    }
+    public String hairColor;
+    public String food;
 }
 
 class RecyclerViewHolder extends RecyclerView.ViewHolder {
     public TextView textViewName;
     public TextView textViewGrade;
+    public TextView textViewHairColor;
+    public TextView textViewFood;
 
     public RecyclerViewHolder(@NonNull @NotNull View itemView) {
         super(itemView);
         this.textViewName = itemView.findViewById(R.id.textViewName);
         this.textViewGrade = itemView.findViewById(R.id.textViewGrade);
+        this.textViewHairColor = itemView.findViewById(R.id.textViewHairColor);
+        this.textViewFood = itemView.findViewById(R.id.textViewFood);
+
     }
 }
