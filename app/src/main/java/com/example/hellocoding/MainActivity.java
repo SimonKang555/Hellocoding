@@ -1,6 +1,7 @@
 package com.example.hellocoding;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,6 +33,13 @@ public class MainActivity extends AppCompatActivity {
         TextView resultTextView = findViewById(R.id.resultTextView);
         Button nameButton = findViewById(R.id.nameButton);
         Button nameAndGradeButton = findViewById(R.id.nameAndGradeButton);
+        Button newPageButton = findViewById(R.id.new_page_button);
+        newPageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         nameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,30 +97,35 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
         Person person1 = new Person();
         person1.grade = "7th";
         person1.name = "Simon K";
         person1.hairColor = "Black";
         person1.food = "Pasta";
+        person1.foodImage = R.drawable.pasta;
 
         Person person2 = new Person();
         person2.grade = "7th";
         person2.name = "Daniel K";
         person2.hairColor = "Red";
         person2.food = "Pizza";
+        person2.foodImage = R.drawable.pizza;
 
         Person person3 = new Person();
         person3.grade ="7th";
         person3.name = "Ian B";
         person3.hairColor = "Brown";
         person3.food = "Burgers";
+        person3.foodImage = R.drawable.burger;
 
         Person person4 = new Person();
         person4.grade = "7th";
         person4.name = "Kristian H";
         person4.hairColor = "Blonde";
         person4.food = "Eggrolls";
+        person4.foodImage = R.drawable.eggroll;
 
 
         List<Person> list = new ArrayList<>();

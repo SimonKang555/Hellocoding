@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -39,6 +41,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
         } if (data.get(position).hairColor == "Red") {
             holder.textViewHairColor.setTextColor(context.getColor(R.color.purple_200));
         }
+        holder.imageView.setImageResource(data.get(position).foodImage);
     }
 
     @Override
@@ -57,6 +60,7 @@ class Person {
     public String grade;
     public String hairColor;
     public String food;
+    public int foodImage;
 }
 
 class RecyclerViewHolder extends RecyclerView.ViewHolder {
@@ -64,6 +68,7 @@ class RecyclerViewHolder extends RecyclerView.ViewHolder {
     public TextView textViewGrade;
     public TextView textViewHairColor;
     public TextView textViewFood;
+    public ImageView imageView;
 
     public RecyclerViewHolder(@NonNull @NotNull View itemView) {
         super(itemView);
@@ -71,6 +76,6 @@ class RecyclerViewHolder extends RecyclerView.ViewHolder {
         this.textViewGrade = itemView.findViewById(R.id.textViewGrade);
         this.textViewHairColor = itemView.findViewById(R.id.textViewHairColor);
         this.textViewFood = itemView.findViewById(R.id.textViewFood);
-
+        this.imageView = itemView.findViewById(R.id.imageView);
     }
 }
