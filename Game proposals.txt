@@ -1,0 +1,17 @@
+Proposal:
+1. Make the game self-playing. 1 Player.
+2. Strategy of this game is, it has ranking system whoever wins the game quicker, is ranked higher.
+3. It will have building and warrior animation fighting.
+Building Hp 200.
+5. Sommon a warrier in the beginning, and start with attack power 1.
+6. Per 10 clicks, attack power increases by 1.
+
+To do from Simon:
+1. Getting the pictures of warrior, buildings, Button image where user will be clicking.
+2. Calculate button clicks, and increase the attack power
+3. Update the opponent building's HP reduction.
+4. Create a popup UI where it displays how much time it took to win the game.
+
+To do from Min:
+1. Build timer where it captures the current time count in seconds
+2. Build ranking system
