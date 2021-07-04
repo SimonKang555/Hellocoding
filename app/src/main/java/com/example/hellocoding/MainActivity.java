@@ -139,3 +139,81 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewAdapter.updateData(list);
     }
 }
+
+/*
+User clicks 0
+int currentAttackPower = 0
+int timesClicked = 0
+
+User clicks 1
+int currentAttackPower = 1
+int timesClicked = 1
+
+User clicks 2
+int currentAttackPower = 1
+int timesClicked = 2
+
+User clicks 3
+int currentAttackPower = 1
+int timesClicked = 3
+
+User clicks 4
+int currentAttackPower = 1
+int timesClicked = 4
+
+User clicks 5
+int currentAttackPower = 1
+int timesClicked = 5
+
+User clicks 6
+int currentAttackPower = 1
+int timesClicked = 6
+
+User clicks 7
+int currentAttackPower = 1
+int timesClicked = 7
+
+User clicks 8
+int currentAttackPower = 1
+int timesClicked = 8
+
+User clicks 9
+int currentAttackPower = 1
+int timesClicked = 9
+
+User clicks 10
+int currentAttackPower = 1
+int timesClicked = 10
+
+User clicks 11
+int currentAttackPower = 2
+int timesClicked = 1
+
+User clicks 12
+int currentAttackPower = 2
+int timesClicked = 2
+
+
+	int currentAttackPower = 0
+	int timesClicked = 0
+
+1. when the user clicks the button the times clicked should go up by one
+2. when the times clicked reaches 1 then the current attack power will go up by one
+3. then the cycle will repeat.
+
+ button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+               int timesClicked = int timesClicked + 1
+    	       if (int timesClicked() == 11) {
+	           int timesClicked = 1
+                  currentAttackPower = currentAttackPower + 1;
+               }
+            }
+        });
+
+The code should use a list because the numbers have a pattern that keeps going down.
+
+
+ */
