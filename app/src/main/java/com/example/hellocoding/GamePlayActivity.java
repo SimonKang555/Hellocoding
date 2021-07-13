@@ -18,7 +18,7 @@ public class GamePlayActivity extends AppCompatActivity {
     int currentAttackPower = 1;
     int timesClicked = 0;
     int currentSeconds = 0;
-    int opponentsHP = 100;
+    int opponentsHP = 200;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +27,6 @@ public class GamePlayActivity extends AppCompatActivity {
 
         Button button3 = findViewById(R.id.button3);
         TextView resultTextView = findViewById(R.id.textView4);
-        TextView timerTextView = findViewById(R.id.textView5);
-        TextView opponentsHpTextView = findViewById(R.id.opponentsHP);
-        ImageView warrior = findViewById(R.id.imageView2);
-        ImageView opponent = findViewById(R.id.imageView5);
 
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +42,14 @@ public class GamePlayActivity extends AppCompatActivity {
             }
         });
 
+        initiate();
+    }
+
+    public void initiate() {
+        TextView timerTextView = findViewById(R.id.textView5);
+        TextView opponentsHpTextView = findViewById(R.id.opponentsHP);
+        ImageView warrior = findViewById(R.id.imageView2);
+        ImageView opponent = findViewById(R.id.imageView5);
         CountDownTimer countDownTimer = new CountDownTimer(999999999, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -77,6 +81,5 @@ public class GamePlayActivity extends AppCompatActivity {
             Animation aniRotate = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate);
             warrior.startAnimation(aniRotate);
         }, 5000);
-
     }
 }

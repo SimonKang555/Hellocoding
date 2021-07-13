@@ -1,0 +1,14 @@
+1. Update the animation motion to something better
+(Walking, attacking winning animation)
+
+1. Polishing the Pictures that we used. We could remove the white background in the picture
+2. Change shape Tap to be rounded
+3. Implement ranking system. (Offline or online?)
+4. Add restart button
+5. Include sound effect
+
+
+1. Homework: Find a way to get rid of "toolbar" "navigation bar"
+2. Homework: Create a 2 other versions of warrior images that look like attacking
+3. Homework: Polishing the Pictures that we used. We could remove the white background in the picture.
+Make the background transparent
