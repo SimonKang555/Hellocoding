@@ -57,6 +57,13 @@ public class GamePlayActivity extends AppCompatActivity {
                 timerTextView.setText(currentSeconds + " Seconds");
                 opponentsHP = opponentsHP - currentAttackPower;
                 opponentsHpTextView.setText("HP: " + opponentsHP);
+
+                if (currentSeconds % 2 == 0) {
+                    warrior.setImageResource(R.drawable.warriorattack);
+                } else if (currentSeconds % 2 == 1) {
+                    warrior.setImageDrawable(getDrawable(R.drawable.warriorattack2));
+                }
+
                 if (opponentsHP <= 0) {
                     Toast.makeText(getApplicationContext(), " You won in " + currentSeconds + " seconds. Congrats! ", Toast.LENGTH_LONG).show();
                     cancel();
@@ -78,8 +85,6 @@ public class GamePlayActivity extends AppCompatActivity {
             countDownTimer.start();
             warrior.setX((opponent.getX() - warrior.getWidth()));
 
-            Animation aniRotate = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate);
-            warrior.startAnimation(aniRotate);
         }, 5000);
     }
 }
