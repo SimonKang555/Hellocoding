@@ -83,6 +83,7 @@ public class GamePlayActivity extends AppCompatActivity {
 
         warrior.postDelayed(() -> {
             countDownTimer.start();
+            warrior.postOnAnimation(warrior::clearAnimation);
             warrior.setX((opponent.getX() - warrior.getWidth()));
 
         }, 5000);

@@ -1,7 +1,7 @@
-1. Update the animation motion to something better
-(Walking, attacking winning animation)
+1. Implement ranking system. (Offline or online?)
+2. Add restart button
+3. Include sound effect
 
-2. Change shape Tap to be rounded
-3. Implement ranking system. (Offline or online?)
-4. Add restart button
-5. Include sound effect
+Homework:
+1. If you are interested, get sound effect (maybe for when you win the game, hit sound effect)
+2. Implement restart functionality
