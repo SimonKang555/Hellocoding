@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class GamePlayActivity extends AppCompatActivity {
+    private Button Restart;
     int currentAttackPower = 1;
     int timesClicked = 0;
     int currentSeconds = 0;
@@ -27,6 +28,15 @@ public class GamePlayActivity extends AppCompatActivity {
 
         Button button3 = findViewById(R.id.button3);
         TextView resultTextView = findViewById(R.id.textView4);
+        Button Restart = findViewById(R.id.Restart);
+
+        Restart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(getIntent());
+            }
+        });
 
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,10 +55,11 @@ public class GamePlayActivity extends AppCompatActivity {
         initiate();
     }
 
-    public void initiate() {
+    private void initiate() {
         TextView timerTextView = findViewById(R.id.textView5);
         TextView opponentsHpTextView = findViewById(R.id.opponentsHP);
         ImageView warrior = findViewById(R.id.imageView2);
+        ImageView ourBase = findViewById(R.id.imageView4);
         ImageView opponent = findViewById(R.id.imageView5);
         CountDownTimer countDownTimer = new CountDownTimer(999999999, 1000) {
             @Override
@@ -75,7 +86,7 @@ public class GamePlayActivity extends AppCompatActivity {
         };
 
         warrior.post(() -> {
-            TranslateAnimation animation = new TranslateAnimation(0, opponent.getX() - warrior.getWidth() - opponent.getWidth(),0 , 0);
+            TranslateAnimation animation = new TranslateAnimation(0, opponent.getX() - warrior.getWidth() - ourBase.getWidth(),0 , 0);
             animation.setDuration(5000);
             animation.setFillAfter(true);
             warrior.startAnimation(animation);
@@ -84,7 +95,7 @@ public class GamePlayActivity extends AppCompatActivity {
         warrior.postDelayed(() -> {
             countDownTimer.start();
             warrior.postOnAnimation(warrior::clearAnimation);
-            warrior.setX((opponent.getX() - warrior.getWidth()));
+            warrior.setX((opponent.getX() - warrior.getWidth() + 20));
 
         }, 5000);
     }

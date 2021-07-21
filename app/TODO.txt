@@ -3,5 +3,16 @@
 3. Include sound effect
 
 Homework:
-1. If you are interested, get sound effect (maybe for when you win the game, hit sound effect)
-2. Implement restart functionality
+1.
+
+1. Ranking:
+- Only show Top 15 rankings:
+- Use Dialog to show Rankings
+- In Ranking, we show "Actual ranking", "UserName", "Time taken to win the game"
+- We need to ask user to create username before the game begins.
+
+Tasks
+- Simon:
+1. Create a machism where we ask user to create username in every game start.
+2. Add a new TextView into gameplayactivity, right above warrior and set the TextView's text with userName from 1.
+5 hours

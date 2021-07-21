@@ -12,4 +12,8 @@ public class SecondPageActivity extends AppCompatActivity {
         setContentView(R.layout.second_page_activity);
 
     }
+
+    private void newMethod() {
+
+    }
 }

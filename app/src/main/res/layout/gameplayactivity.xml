@@ -20,7 +20,6 @@
         android:id="@+id/imageView4"
         android:layout_width="133dp"
         android:layout_height="77dp"
-        android:layout_marginStart="4dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView6"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ourbase" />
@@ -104,7 +103,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/Restart"
         android:layout_width="58dp"
         android:layout_height="55dp"
         android:layout_marginTop="8dp"
