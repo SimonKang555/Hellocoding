@@ -2,15 +2,11 @@ package com.example.hellocoding;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,7 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 
 public class GamePlayActivity extends AppCompatActivity {
     int currentAttackPower = 1;
@@ -32,7 +27,7 @@ public class GamePlayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gameplayactivity);
 
-        showDialog().show();
+        showUsernameDialog().show();
 
         Button button3 = findViewById(R.id.button3);
         TextView resultTextView = findViewById(R.id.textView4);
@@ -108,7 +103,7 @@ public class GamePlayActivity extends AppCompatActivity {
 
     }
 
-    private Dialog showDialog() {
+    private Dialog showUsernameDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         // Get the layout inflater
         LayoutInflater inflater = getLayoutInflater();
@@ -129,7 +124,7 @@ public class GamePlayActivity extends AppCompatActivity {
 
                         if (userName.length() < 1) {
                             Toast.makeText(getApplicationContext(), "Enter Username", Toast.LENGTH_SHORT).show();
-                            showDialog().show();
+                            showUsernameDialog().show();
                         } else if (userName.length() > 0) {
                             initiate();
                         }
