@@ -1,21 +1,27 @@
 package com.example.hellocoding;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 public class GamePlayActivity extends AppCompatActivity {
-    private Button Restart;
     int currentAttackPower = 1;
     int timesClicked = 0;
     int currentSeconds = 0;
@@ -25,6 +31,8 @@ public class GamePlayActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gameplayactivity);
+
+        showDialog().show();
 
         Button button3 = findViewById(R.id.button3);
         TextView resultTextView = findViewById(R.id.textView4);
@@ -51,8 +59,6 @@ public class GamePlayActivity extends AppCompatActivity {
                 }
             }
         });
-
-        initiate();
     }
 
     private void initiate() {
@@ -61,6 +67,7 @@ public class GamePlayActivity extends AppCompatActivity {
         ImageView warrior = findViewById(R.id.imageView2);
         ImageView ourBase = findViewById(R.id.imageView4);
         ImageView opponent = findViewById(R.id.imageView5);
+        TextView userName = findViewById(R.id.userName);
         CountDownTimer countDownTimer = new CountDownTimer(999999999, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -98,5 +105,56 @@ public class GamePlayActivity extends AppCompatActivity {
             warrior.setX((opponent.getX() - warrior.getWidth() + 20));
 
         }, 5000);
+
     }
+
+    private Dialog showDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        // Get the layout inflater
+        LayoutInflater inflater = getLayoutInflater();
+
+        builder.setCancelable(false);
+
+        View view = inflater.inflate(R.layout.dialog, null);
+        EditText userNameEditText = view.findViewById(R.id.username);
+
+        // Inflate and set the layout for the dialog
+        // Pass null as the parent view because its going in the dialog layout
+        builder.setView(view)
+                // Add action buttons
+                .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        String userName = userNameEditText.getText().toString();
+
+                        if (userName.length() < 1) {
+                            Toast.makeText(getApplicationContext(), "Enter Username", Toast.LENGTH_SHORT).show();
+                            showDialog().show();
+                        } else if (userName.length() > 0) {
+                            initiate();
+                        }
+                    }
+                });
+        return builder.create();
+    }
+
+//    public static class UsernameDialog extends DialogFragment {
+//        @Override
+//        public Dialog onCreateDialog(Bundle savedInstanceState) {
+//            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//            // Get the layout inflater
+//            LayoutInflater inflater = requireActivity().getLayoutInflater();
+//
+//            // Inflate and set the layout for the dialog
+//            // Pass null as the parent view because its going in the dialog layout
+//            builder.setView(inflater.inflate(R.layout.dialog, null))
+//                    // Add action buttons
+//                    .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int id) {
+//                        }
+//                    });
+//            return builder.create();
+//        }
+//    }
 }

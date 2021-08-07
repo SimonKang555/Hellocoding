@@ -36,10 +36,10 @@
         android:id="@+id/imageView6"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:scaleType="fitXY"
         app:srcCompat="@drawable/ground" />
 
     <ImageView
@@ -54,7 +54,7 @@
         android:id="@+id/button3"
         android:layout_width="130dp"
         android:layout_height="36dp"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="132dp"
         android:layout_marginBottom="4dp"
         android:backgroundTint="#716F6F"
         android:text="Tap"
@@ -69,7 +69,7 @@
         android:layout_marginBottom="8dp"
         android:background="#504B4B"
         android:gravity="center"
-        android:text="HP 100"
+        android:text="HP 200"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/imageView5"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -113,5 +113,17 @@
         app:cornerRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="userName"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,8 @@ Homework:
 
 Tasks
 - Simon:
-1. Create a machism where we ask user to create username in every game start.
-2. Add a new TextView into gameplayactivity, right above warrior and set the TextView's text with userName from 1.
-5 hours
+1. Create XML which shows "actual ranking", "userName", "Time taken".
+2. Show actual username from dialog into username textview in the game. (Use class level variable somehow..)
+
+- Min:
+1. Min will work on creating Ranking system in the code, adding / updating ranking
