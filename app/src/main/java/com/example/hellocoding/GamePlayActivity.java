@@ -28,6 +28,7 @@ public class GamePlayActivity extends AppCompatActivity {
         setContentView(R.layout.gameplayactivity);
 
         showUsernameDialog().show();
+//        showRankingDialog().show();
 
         Button button3 = findViewById(R.id.button3);
         TextView resultTextView = findViewById(R.id.textView4);
@@ -112,7 +113,7 @@ public class GamePlayActivity extends AppCompatActivity {
 
         View view = inflater.inflate(R.layout.dialog, null);
         EditText userNameEditText = view.findViewById(R.id.username);
-
+        TextView userNameOne = findViewById(R.id.userName);
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
         builder.setView(view)
@@ -127,29 +128,30 @@ public class GamePlayActivity extends AppCompatActivity {
                             showUsernameDialog().show();
                         } else if (userName.length() > 0) {
                             initiate();
+                            // TODO:
+                            userNameOne.setText(userName);
                         }
                     }
                 });
         return builder.create();
     }
 
-//    public static class UsernameDialog extends DialogFragment {
-//        @Override
-//        public Dialog onCreateDialog(Bundle savedInstanceState) {
-//            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//            // Get the layout inflater
-//            LayoutInflater inflater = requireActivity().getLayoutInflater();
-//
-//            // Inflate and set the layout for the dialog
-//            // Pass null as the parent view because its going in the dialog layout
-//            builder.setView(inflater.inflate(R.layout.dialog, null))
-//                    // Add action buttons
-//                    .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialog, int id) {
-//                        }
-//                    });
-//            return builder.create();
-//        }
-//    }
+    private Dialog showRankingDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+
+        builder.setCancelable(false);
+
+        View view = inflater.inflate(R.layout.ranking, null);
+
+        builder.setView(view)
+
+                .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        initiate();
+                    }
+                });
+        return builder.create();
+    }
 }

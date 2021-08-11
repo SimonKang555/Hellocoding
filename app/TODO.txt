@@ -13,8 +13,7 @@ Homework:
 
 Tasks
 - Simon:
-1. Create XML which shows "actual ranking", "userName", "Time taken".
+1. Show ranking dialog at the start of the game
 2. Show actual username from dialog into username textview in the game. (Use class level variable somehow..)
 
-- Min:
-1. Min will work on creating Ranking system in the code, adding / updating ranking
+5:00 PM Sunday
