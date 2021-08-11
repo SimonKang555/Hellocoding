@@ -15,12 +15,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.example.hellocoding.ranking.Ranking;
 
 public class GamePlayActivity extends AppCompatActivity {
     int currentAttackPower = 1;
     int timesClicked = 0;
     int currentSeconds = 0;
     int opponentsHP = 200;
+    RankingViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,7 @@ public class GamePlayActivity extends AppCompatActivity {
         showUsernameDialog().show();
 //        showRankingDialog().show();
 
+        viewModel = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(RankingViewModel.class);
         Button button3 = findViewById(R.id.button3);
         TextView resultTextView = findViewById(R.id.textView4);
         Button Restart = findViewById(R.id.Restart);
@@ -80,6 +85,8 @@ public class GamePlayActivity extends AppCompatActivity {
 
                 if (opponentsHP <= 0) {
                     Toast.makeText(getApplicationContext(), " You won in " + currentSeconds + " seconds. Congrats! ", Toast.LENGTH_LONG).show();
+                    viewModel.insert(new Ranking(userName.getText().toString(), currentSeconds));
+                    showRankingDialog();
                     cancel();
                 }
             }
