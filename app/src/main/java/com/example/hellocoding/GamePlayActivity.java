@@ -15,6 +15,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class GamePlayActivity extends AppCompatActivity {
     int currentAttackPower = 1;
@@ -27,8 +30,8 @@ public class GamePlayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gameplayactivity);
 
-        showUsernameDialog().show();
-//        showRankingDialog().show();
+//        showUsernameDialog().show();
+        showRankingDialog().show();
 
         Button button3 = findViewById(R.id.button3);
         TextView resultTextView = findViewById(R.id.textView4);
@@ -137,15 +140,20 @@ public class GamePlayActivity extends AppCompatActivity {
     }
 
     private Dialog showRankingDialog() {
+        view
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
-
-        builder.setCancelable(false);
+        RankingRecyclerViewAdapter rankingRecyclerViewAdapter = new RankingRecyclerViewAdapter();
+        rankingRecyclerViewAdapter.updateData();
 
         View view = inflater.inflate(R.layout.ranking, null);
+        RecyclerView recyclerView = view.findViewById(R.id.rankingRecyclerView);
+        recyclerView.setAdapter(rankingRecyclerViewAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
         builder.setView(view)
-
                 .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {

@@ -15,6 +15,7 @@ public class Ranking {
     @NonNull
     @ColumnInfo(name = "timeTaken")
     public String timeTaken;
+    public String rankingNumber;
 
     public Ranking(@NonNull String username, @NonNull String timeTaken) {
         this.username = username;
