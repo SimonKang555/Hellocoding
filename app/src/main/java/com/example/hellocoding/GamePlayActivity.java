@@ -31,10 +31,14 @@ public class GamePlayActivity extends AppCompatActivity {
     int currentSeconds = 0;
     int opponentsHP = 200;
     RankingViewModel viewModel;
+    boolean isFirstStart = true;
+
     Observer<List<Ranking>> observer = new Observer<List<Ranking>>() {
         @Override
         public void onChanged(List<Ranking> rankings) {
-            showRankingDialog(rankings).show();
+            if (isFirstStart == false) {
+                showRankingDialog(rankings).show();
+            }
         }
     };
 
@@ -98,6 +102,7 @@ public class GamePlayActivity extends AppCompatActivity {
 
                 if (opponentsHP <= 0) {
                     Toast.makeText(getApplicationContext(), " You won in " + currentSeconds + " seconds. Congrats! ", Toast.LENGTH_LONG).show();
+                    isFirstStart = false;
                     viewModel.insert(new Ranking(userName.getText().toString(), currentSeconds));
 
                     cancel();

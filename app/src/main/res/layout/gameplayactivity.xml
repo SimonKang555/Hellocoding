@@ -11,15 +11,16 @@
         android:layout_width="99dp"
         android:layout_height="47dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="56dp"
         android:background="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintStart_toStartOf="@+id/imageView4" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="133dp"
         android:layout_height="77dp"
+        android:layout_marginStart="4dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView6"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ourbase" />
@@ -46,6 +47,7 @@
         android:id="@+id/imageView2"
         android:layout_width="53dp"
         android:layout_height="75dp"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toTopOf="@+id/imageView6"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:srcCompat="@drawable/warrior" />
@@ -54,12 +56,12 @@
         android:id="@+id/button3"
         android:layout_width="130dp"
         android:layout_height="36dp"
-        android:layout_marginStart="132dp"
         android:layout_marginBottom="4dp"
         android:backgroundTint="#716F6F"
         android:text="Tap"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView2" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/opponentsHP"
@@ -117,13 +119,12 @@
     <TextView
         android:id="@+id/userName"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="16dp"
         android:layout_marginBottom="12dp"
         android:text="userName"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView4" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
