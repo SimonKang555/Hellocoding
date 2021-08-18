@@ -13,7 +13,7 @@ Homework:
 
 Tasks
 - Simon:
-1. Show ranking dialog at the start of the game
-2. Show actual username from dialog into username textview in the game. (Use class level variable somehow..)
+1. Currently, when warriror arrives at opponent's base, the animation gets shrink. Try to see if you can make animation not shrink (Or make it look as close to walking animation size)
+2. Make the username textview more explicit to see. (Maybe relocate? Maybe setting background color to gray like other views?)
 
 5:00 PM Sunday

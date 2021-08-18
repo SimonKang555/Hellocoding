@@ -31,9 +31,9 @@ public class RankingRecyclerViewAdapter extends RecyclerView.Adapter<RankingRecy
     @Override
     public void onBindViewHolder(@NonNull @NotNull RankingRecyclerViewHolder holder, int position) {
         Context context = holder.itemView.getContext();
-        holder.rankingNumber.setText( data.get(position).rankingNumber);
+        holder.rankingNumber.setText(position + 1 + "");
         holder.rankingUserName.setText(data.get(position).username);
-        holder.rankingTimeTaken.setText(data.get(position).timeTaken);
+        holder.rankingTimeTaken.setText(data.get(position).timeTaken + " second");
     }
 
     @Override
@@ -42,6 +42,12 @@ public class RankingRecyclerViewAdapter extends RecyclerView.Adapter<RankingRecy
     }
 
     public void updateData(List<Ranking> data) {
+        for (int i = 0; i < data.size(); i++) {
+            if (i >= 15) {
+                data.remove(i);
+                i--;
+            }
+        }
         this.data = data;
         notifyDataSetChanged();
     }

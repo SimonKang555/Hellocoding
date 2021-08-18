@@ -12,12 +12,10 @@ public class Ranking {
     @NonNull
     @ColumnInfo(name = "username")
     public String username;
-    @NonNull
     @ColumnInfo(name = "timeTaken")
-    public String timeTaken;
-    public String rankingNumber;
+    public int timeTaken;
 
-    public Ranking(@NonNull String username, @NonNull String timeTaken) {
+    public Ranking(@NonNull String username, @NonNull int timeTaken) {
         this.username = username;
         this.timeTaken = timeTaken;
     }

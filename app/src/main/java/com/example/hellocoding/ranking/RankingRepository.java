@@ -15,7 +15,7 @@ public class RankingRepository {
     // https://github.com/googlesamples
     public RankingRepository() {
         RankingRoomDatabase db = RankingRoomDatabase.getDatabase();
-        rankingDao = db.diaryDao();
+        rankingDao = db.rankingDao();
         ranking = rankingDao.getRanking();
     }
 

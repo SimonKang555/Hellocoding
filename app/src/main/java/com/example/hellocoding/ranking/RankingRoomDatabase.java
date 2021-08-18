@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
 @Database(entities = {Ranking.class}, version = 1, exportSchema = false)
 public abstract class RankingRoomDatabase extends RoomDatabase {
 
-    public abstract RankingDao diaryDao();
+    public abstract RankingDao rankingDao();
 
     private static volatile RankingRoomDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;

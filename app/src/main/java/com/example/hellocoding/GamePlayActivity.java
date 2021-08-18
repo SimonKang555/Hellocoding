@@ -15,23 +15,38 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.example.hellocoding.ranking.Ranking;
+
+import java.util.List;
 
 public class GamePlayActivity extends AppCompatActivity {
     int currentAttackPower = 1;
     int timesClicked = 0;
     int currentSeconds = 0;
     int opponentsHP = 200;
+    RankingViewModel viewModel;
+    Observer<List<Ranking>> observer = new Observer<List<Ranking>>() {
+        @Override
+        public void onChanged(List<Ranking> rankings) {
+            showRankingDialog(rankings).show();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gameplayactivity);
 
-//        showUsernameDialog().show();
-        showRankingDialog().show();
+        viewModel = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(RankingViewModel.class);
+        viewModel.getRankings().observe(GamePlayActivity.this, observer);
+
+        showUsernameDialog().show();
 
         Button button3 = findViewById(R.id.button3);
         TextView resultTextView = findViewById(R.id.textView4);
@@ -83,6 +98,8 @@ public class GamePlayActivity extends AppCompatActivity {
 
                 if (opponentsHP <= 0) {
                     Toast.makeText(getApplicationContext(), " You won in " + currentSeconds + " seconds. Congrats! ", Toast.LENGTH_LONG).show();
+                    viewModel.insert(new Ranking(userName.getText().toString(), currentSeconds));
+
                     cancel();
                 }
             }
@@ -139,13 +156,13 @@ public class GamePlayActivity extends AppCompatActivity {
         return builder.create();
     }
 
-    private Dialog showRankingDialog() {
-        view
-
+    private Dialog showRankingDialog(List<Ranking> rankings) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
+
         LayoutInflater inflater = getLayoutInflater();
         RankingRecyclerViewAdapter rankingRecyclerViewAdapter = new RankingRecyclerViewAdapter();
-        rankingRecyclerViewAdapter.updateData();
+        rankingRecyclerViewAdapter.updateData(rankings);
 
         View view = inflater.inflate(R.layout.ranking, null);
         RecyclerView recyclerView = view.findViewById(R.id.rankingRecyclerView);
@@ -156,9 +173,7 @@ public class GamePlayActivity extends AppCompatActivity {
         builder.setView(view)
                 .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int id) {
-                        initiate();
-                    }
+                    public void onClick(DialogInterface dialog, int id) { }
                 });
         return builder.create();
     }
